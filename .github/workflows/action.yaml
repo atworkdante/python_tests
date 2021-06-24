@@ -21,7 +21,7 @@ jobs:
           pip install pytest
           pip install pylint
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Tests with pytest Lint
+      - name: Tests with Lint
         run: pylint -r n main.py
-      - name: Test
+      - name: Tests with pytest
         run: pytest -rn tests/test_main.py
