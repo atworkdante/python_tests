@@ -24,4 +24,4 @@ jobs:
       - name: Test with pytest
         run: |
           pylint -r n main.py
-          pytest tests/test_main.py
+          pytest -rn tests/test_main.py
