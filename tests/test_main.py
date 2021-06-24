@@ -10,7 +10,7 @@ class TestStringMethods(unittest.TestCase):
     def test_isupper(self):
         """Um teste de meio sucesso"""
         self.assertTrue('FOO'.isupper())
-        self.assertTrue('Foo'.isupper())
+        self.assertFalse('Foo'.isupper())
 
 
 if __name__ == '__main__':
