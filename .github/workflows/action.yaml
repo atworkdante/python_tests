@@ -15,13 +15,19 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-          pip install pylint
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Tests with Lint
-        run: pylint -r n --fail-under=6 main.py
-      - name: Tests with pytest
-        run: pytest -rn tests/test_main.py
+      - name: Print slug/short variables
+      - run: |
+           echo "Slug variables"
+           echo " - ${{ env.GITHUB_REF_SLUG }}"
+           echo " - ${{ env.GITHUB_HEAD_REF_SLUG }}"
+           echo " - ${{ env.GITHUB_BASE_REF_SLUG }}"
+           echo " - ${{ env.GITHUB_REPOSITORY_SLUG }}"
+           # output e.g. : master feat-new-feature v1.0.0 product-1.0.0-rc.2 new-awesome-product
+           echo "Slug URL variables"
+           echo " - ${{ env.GITHUB_REF_SLUG_URL }}"
+           echo " - ${{ env.GITHUB_HEAD_REF_SLUG_URL }}"
+           echo " - ${{ env.GITHUB_BASE_REF_SLUG_URL }}"
+           echo " - ${{ env.GITHUB_REPOSITORY_SLUG_URL }}"
+           # output e.g. : master feat-new-feature v1-0-0 product-1-0-0-rc-2 new-awesome-product
+           echo "Short SHA variables"
+           echo " - ${{ env.GITHUB_SHA_SHORT }}"
